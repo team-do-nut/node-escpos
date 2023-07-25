@@ -803,6 +803,12 @@ Printer.prototype.cut = function (part, feed) {
   return this;
 };
 
+Printer.prototype.cutOld = function (part, feed) {
+  this.feed(feed || 3);
+  this.buffer.write('\x1b\x69\x00');
+  return this;
+};
+
 /**
  * [close description]
  * @param  {Function} callback [description]
